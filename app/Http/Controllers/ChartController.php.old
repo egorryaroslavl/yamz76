@@ -1,0 +1,217 @@
+<?php
+
+	namespace App\Http\Controllers;
+
+	use App\Model\Product;
+	use Illuminate\Http\Request;
+
+	use App\Http\Requests;
+
+	class ChartController extends Controller
+	{
+
+		public function store( Request $request )
+		{
+			$product_data  = Product::where( 'id', $request->product_id )->first();
+			$category_data = Product::product_category( $request->product_id );
+			$new_record    = array(
+				'product_name'   => $product_data->name,
+				'product_alias'  => $product_data->alias,
+				'product_id'     => $request->product_id,
+				'price'          => $request->price,
+				'count'          => $request->count,
+				'category_id'    => $request->category_id,
+				'category_name'  => $category_data->name,
+				'category_alias' => $category_data->alias,
+
+			);
+
+			if( $request->session()->has( 'chart' ) ){
+
+				$chartArray = $request->session()->get( 'chart', 'empty' );
+
+				$issetId = $this->issetId( $request->product_id, $chartArray );
+
+				if( !$issetId ){
+					$request->session()->push( 'chart', $new_record );
+				}
+
+
+			} else{
+				$newRecord[] = array(
+					'product_name'   => $product_data->name,
+					'product_alias'  => $product_data->alias,
+					'product_id'     => $request->product_id,
+					'price'          => $request->price,
+					'count'          => $request->count,
+					'category_id'    => $request->category_id,
+					'category_name'  => $category_data->name,
+					'category_alias' => $category_data->alias,
+
+				);
+
+				$request->session()->put( 'chart', $newRecord );
+			}
+
+
+			$data = $request->session()->get( 'chart', 'empty' );
+
+			return view( 'chart' )->with( 'data', $data );
+		}
+
+
+		public function issetId( $id, $aArray )
+		{
+
+			$Count = count( $aArray );
+
+			if( $Count > 0 ){
+
+				for( $i = 0; $i < $Count; $i++ ){
+
+					if( $aArray[ $i ][ 'product_id' ] == $id ){
+						return true;
+					}
+
+				}
+
+			}
+
+			return false;
+		}
+
+		public function load( Request $request )
+		{
+
+			$data = $request->session()->get( 'chart', 'empty' );
+
+			return view( 'chart', [ 'data' => $data, 'state' => $request->state ] );
+		}
+
+		public function order( Request $request )
+		{
+			if( $request->session()->has( 'chart' ) ){
+
+				$data = $request->session()->get( 'chart', 'empty' );
+
+				return view( 'order' )->with( 'data', $data );
+			} else{
+				return redirect( '/categories' );
+			}
+
+
+		}
+
+
+		public function changecount( Request $request )
+		{
+
+			if( $request->session()->has( 'chart' ) ){
+
+				$aArray = $request->session()->get( 'chart', 'empty' );
+
+				$Count = count( $aArray );
+
+				$updatedArr = array();
+
+				if( $Count > 0 ){
+
+					for( $i = 0; $i < $Count; $i++ ){
+
+						if( $aArray[ $i ][ 'product_id' ] == $request->id ){
+							$aArray[ $i ][ 'count' ] = $request->count;
+						}
+
+						$updatedArr[] = $aArray[ $i ];
+					}
+					$request->session()->put( 'chart', $updatedArr );
+				}
+
+
+			}
+		}
+
+
+		public function destroy( Request $request )
+		{
+
+			if( $request->session()->has( 'chart' ) ){
+
+				$aArray = $request->session()->get( 'chart', 'empty' );
+
+				$Count = count( $aArray );
+
+				$updatedArr = array();
+
+				if( $Count > 0 ){
+
+					for( $i = 0; $i < $Count; $i++ ){
+
+						if( $aArray[ $i ][ 'product_id' ] != $request->id ){
+							$updatedArr[] = $aArray[ $i ];
+						}
+
+					}
+					$request->session()->put( 'chart', $updatedArr );
+				}
+
+
+			}
+		}
+
+
+		public function orderdel( Request $request )
+		{
+
+			if( $request->session()->has( 'chart' ) ){
+
+				$request->session()->put( 'chart', [] );
+
+
+			}
+		}
+
+
+		public function ordersend( Request $request )
+		{
+
+			if( $request->session()->has( 'chart' ) ){
+
+				$data = $request->session()->get( 'chart', 'empty' );
+
+				$message = view( 'email.order', [
+					'data'        => $data,
+					'companyname' => $request->companyname,
+					'username'    => $request->username,
+					'userphone'  => $request->userphone,
+					'useremail'   => $request->useremail,
+					'usercomment' => $request->usercomment,
+				] )->render();
+				// несколько получателей
+				$to = 'yaroslavl.city@gmail.com';
+
+
+				// тема письма
+				$subject = 'Сообщение с сайта';
+
+
+				// Для отправки HTML-письма должен быть установлен заголовок Content-type
+				$headers = 'MIME-Version: 1.0' . "\r\n";
+				$headers .= 'Content-type: text/html; charset=utf8' . "\r\n";
+
+				// Дополнительные заголовки
+				$headers .= 'To: Mary <mary@example.com>, Kelly <kelly@example.com>' . "\r\n";
+				$headers .= 'From: Birthday Reminder <birthday@example.com>' . "\r\n";
+				$headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
+				$headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
+
+				
+
+				mail( $to, $subject, $message, $headers );
+
+
+			}
+		}
+
+
+	}

@@ -1,0 +1,104 @@
+<?php
+
+	namespace App\Http\Controllers;
+
+	use App\Model\Product;
+	use App\Model\YamzCategory;
+	use Illuminate\Http\Request;
+
+	use App\Http\Requests;
+
+	class ProductsController extends Controller
+	{
+
+		public function index()
+		{
+			//
+		}
+
+
+		public function show( Request $request )
+		{
+
+			$data = Product::where( 'alias', $request->alias )
+				/*			->where( 'articul', $request->articul )*/
+				->where( 'id', $request->id )
+				->where( 'public', 1 )
+				->first();
+
+
+			$data->category = Product::product_category( $request->id );
+			return view( 'product' )->with( 'data', $data );
+
+		}
+
+
+		public function changeprice( Request $request )
+		{
+
+			$category          = YamzCategory::where( 'id', $request->category_id )->first();
+			$request->category = $category;
+
+			echo view( 'productions.makechangeform', [ 'data' => $request ] )->render();
+
+		}
+
+		public function calculator( $tcena, $percents, $todo )
+		{
+
+			if( $todo == 'up' ){
+				return round( $tcena * ( 1 + $percents / 100 ), 2 );
+			}
+
+			if( $todo == 'down' ){
+				return round( $tcena - $percents * ( $tcena / 100 ), 2 );
+			}
+
+		}
+
+
+		public function mknewprices( Request $request )
+		{
+
+			dd($request);
+
+/*			$aNewPrices = [];
+			$ids        = json_decode( $request->ids );
+
+			foreach( $ids as $id => $price ){
+				if( $request->todo == 'up' || $request->todo == 'down' ){
+					$aNewPrices[ $id ] = $this->calculator( $price, $request->percents, $request->todo );
+				}
+				if( $request->todo == 'chislo' ){
+					$aNewPrices[ $id ] = $request->chislo;
+				}
+
+			}
+			unset( $id, $price );
+
+
+			$newPricesCount = count( $aNewPrices );
+			$updateRes      = 0;
+
+			foreach( $aNewPrices as $_id => $_newPrice ){
+				$res = $this->priceUpdate( $_id, $_newPrice );
+				if( $res > 0 ) $updateRes++;
+			}
+			unset( $_id, $_newPrice );
+
+			if( $newPricesCount == $updateRes ){
+				echo json_encode( [ 'error' => 'ok', 'message' => $updateRes ] );
+			}*/
+
+		}
+
+		public function priceUpdate( $id, $price )
+		{
+
+			return \DB::table( 'products' )
+				->where( 'id', $id )
+				->update( [ 'price' => $price ] );
+
+		}
+
+	}

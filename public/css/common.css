@@ -1,0 +1,552 @@
+@import "fonts.css";
+
+article > ul li,.description  > ul li  {
+	list-style: url("data:image/gif;base64,R0lGODlhCgAKAMQAACpTrePp9CROqsLN58/Y7fr7/SJMqXOOyVV1vYmf0YSc0Nzj8djg8PHz+YObz/X3+5On1X2WzY2j0+3w+GiFxf3+/vn6/UxuunCMyB5JqLHA4Zyv2aK023WPyhlFpv///yH5BAEAAB8ALAAAAAAKAAoAAAUu4CeOpKgNTylGiLRU5SEI1xaQHeDtCHd/ud2OQljNPDWGxQhQEJYjhQOlCkxUIQA7");
+	}
+
+.check-list {
+	padding-left: 0;
+	list-style:   none
+	}
+
+.check-list > li::before {
+	content:       '\f046';
+	position:      relative;
+	top:           1px;
+	padding-right: 8px;
+	color:         #a2231d;
+	font-family:   'FontAwesome'
+	}
+
+.services-menu li h5 a.active {
+	color:           #4f6fff;
+	text-decoration: underline;
+
+	}
+
+.services-menu li h5 a:hover {
+	color: #384aaf;
+	}
+
+.get-order {
+	text-transform: uppercase;
+	margin:         0;
+	}
+
+li.product-item {
+	background:    #dddddd;
+	margin-bottom: 2px;
+	}
+
+/*#chart {
+
+	position: absolute;
+
+	}*/
+li.chartBtn {
+	float: right !important;
+	right: 50px !important;
+	}
+
+li.chartBtn a, li.chartBtn a:hover {
+	text-decoration: none !important;
+	border-bottom:   none !important;
+	}
+
+.cart {
+	background-image:  url("/images/carta.png");
+	background-repeat: no-repeat;
+	/*		float: right;
+	height: 42px;
+		position: absolute;
+		right:80px;
+		top: 0;
+		width: 50px;*/
+	}
+
+.cart_ {
+	background: url("/images/carta.png") 50% 50% no-repeat;
+	height:     42px;
+	width:      50px;
+	}
+
+.cart-icon {
+	color: #fff;
+	}
+
+.shoping-cart-place {
+	width:         40px;
+	height:        40px;
+	top:           0;
+	z-index:       99;
+	border-radius: 2px;
+	opacity:       0.9;
+	}
+
+.shoping-cart-place i {
+	float: right;
+	}
+
+.fa-cart-arrow-down:hover {
+	opacity: 1.0;
+	}
+
+.product-list div.row {
+	border-bottom:  1px #ccc solid;
+	margin-bottom:  2px;
+	vertical-align: middle;
+	font-size:      0.85rem;
+	padding-top:    6px;
+	}
+
+input.product-count {
+	width:         70px;
+	margin:        0;
+	padding:       2px !important;
+	display:       inline;
+	text-align:    center;
+	font-size:     inherit;
+	height:        auto;
+	border-radius: 2px;
+	}
+
+.product-list {
+	max-height: 300px;
+	overflow:   scroll;
+	overflow-x: hidden;
+	padding:    0 20px;
+	}
+
+.product-list_ {
+	max-height: 1200px;
+	overflow:   scroll;
+	overflow-x: hidden;
+	padding:    0 10px;
+	}
+
+.fa-cart-arrow-down > .fa-cart-arrow-down {
+	-webkit-transition: all 1s ease;
+	-moz-transition:    all 1s ease;
+	-o-transition:      all 1s ease;
+	transition:         all 1s ease;
+	cursor:             pointer;
+	}
+
+.fa-cart-arrow-down > .fa-shopping-basket:hover {
+	-moz-transform:    rotate(360deg) scale(1.3, 1.3) skewX(0deg) skewY(0deg) translate(0px, 0px);
+	-webkit-transform: rotate(360deg) scale(1.3, 1.3) skew(0deg, 0deg) translate(0px, 0px);
+	-o-transform:      rotate(360deg) scale(1.3, 1.3) skew(0deg, 0deg) translate(0px, 0px);
+	-ms-transform:     rotate(360deg) scale(1.3, 1.3) skew(0deg, 0deg) translate(0px, 0px);
+	transform:         rotate(360deg) scale(1.3, 1.3) skew(0deg, 0deg) translate(0px, 0px);
+	color:             #de000d;
+	}
+
+.product-list table tbody tr td {
+	font-size: 0.8rem;
+	}
+
+.summ {
+	min-width:   120px;
+	text-align:  center;
+	color:       #212c67;
+	font-weight: bold;
+	}
+
+.summ-text, .total, .un {
+	font-size:      22px !important;
+	color:          #212c67;
+	font-family:    serif;
+	text-shadow:    1px 1px 0 #fff;
+	padding-right:  0;
+	vertical-align: bottom;
+	text-align:     right;
+	}
+
+.articles-list {
+	margin-top: -30px;
+	}
+
+.articles-list li {
+	background:    #dddfff;
+	padding:       6px 20px;
+	margin-bottom: 2px;
+	font-weight:   bold;
+	}
+
+.order-user-data tr, .order-user-data td {
+	border: none !important;
+	}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+	font-family: RalewayBold;
+	font-weight: 500;
+	line-height: 1.1;
+	color:       inherit
+	}
+
+.h1, .h2, .h3, h1, h2, h3 {
+	margin-top:    20px;
+	margin-bottom: 10px
+	}
+
+.h4, .h5, .h6, h4, h5, h6 {
+	margin-top:    10px;
+	margin-bottom: 10px
+	}
+
+.h1, h1 {
+	font-size: 36px
+	}
+
+p {
+	margin: 0 0 10px
+	}
+
+.lead {
+	margin-bottom: 20px;
+	font-size:     16px;
+	font-weight:   300;
+	line-height:   1.4
+	}
+
+.header-phone-box {
+	padding-right: 5px;
+	}
+
+.header-navbar-toggle-box {
+	text-align: center;
+	}
+
+.header-navbar-toggle .icon-bar {
+	transition:       transform 200ms ease 0s, opacity 200ms ease 0s, -webkit-transform 200ms ease 0s;
+	background-color: #fff;
+	width:            35px;
+	height:           2px;
+	}
+
+.header-navbar-toggle {
+	background-color: #6a6a6a !important;
+	float:            none;
+	margin:           0;
+	border:           0 none;
+	padding:          10px;
+	display:          inline-block;
+	text-align:       center;
+	color:            #000;
+	font-size:        36px;
+	}
+
+.header-logo {
+	width:            140px;
+	height:           auto;
+	padding:          24px 21px 24px 29px;
+	background-color: #a2231d;
+	}
+
+.h2.highlight {
+	color: #A2231D;
+	}
+
+.search-highlight {
+	background: #fff200 !important;
+	}
+
+#top {
+	background: #203440 !important;
+	color:      #ffffff;
+	padding:    4px 0 3px 0;
+	margin:     0 !important;
+	min-height: 40px;
+	}
+
+.main-header {
+	background:    #C3DFE2 url(/images/bg01.jpg);
+	margin-bottom: 0;
+	padding:       15px 0 10px 0;
+	}
+
+.section {
+	padding-top: 10px
+	}
+
+footer {
+	padding-top: 0 !important;
+	}
+
+.footer-decor {
+	position:   absolute;
+	top:        0;
+	left:       0;
+	right:      0;
+	bottom:     0;
+	background: url("/gear/images/footer-1.jpg") center center/auto no-repeat;
+	}
+
+.dropbtn {
+	background-color: #4CAF50;
+	color:            white;
+	padding:          16px;
+	font-size:        16px;
+	border:           none;
+	cursor:           pointer;
+	}
+
+.dropdown {
+	position: relative;
+	display:  inline-block;
+	}
+
+.dropdown-content {
+	display:          none;
+	position:         absolute;
+	background-color: #f9f9f9;
+	min-width:        160px;
+	box-shadow:       0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	}
+
+.dropdown-content a {
+	color:           black;
+	padding:         12px 16px;
+	text-decoration: none;
+	display:         block;
+	}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1
+	}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+	}
+
+.dropdown:hover .dropbtn {
+	background-color: #3e8e41;
+	}
+
+.header--home-page {
+	margin-top: -28px;
+	height:     300px;
+	overflow:   hidden
+	}
+
+.shop-item__image {
+	position:           absolute;
+	top:                0;
+	width:              100%;
+/*	-webkit-transition: all 500ms;
+	transition:         all 500ms*/
+	}
+
+.shop-item:hover .shop-item__image {
+/*	-moz-transform:    rotate(0deg) scale(1.1, 1.1) skewX(0deg) skewY(0deg) translate(0px, 0px);
+	-webkit-transform: rotate(0deg) scale(1.1, 1.1) skew(0deg, 0deg) translate(0px, 0px);
+	-o-transform:      rotate(0deg) scale(1.1, 1.1) skew(0deg, 0deg) translate(0px, 0px);
+	-ms-transform:     rotate(0deg) scale(1.1, 1.1) skew(0deg, 0deg) translate(0px, 0px);
+	transform:         rotate(0deg) scale(1.1, 1.1) skew(0deg, 0deg) translate(0px, 0px);
+	top:               -5px;*/
+	}
+
+/*  LAYOUT
+---------------------------------------------------------------------- */
+/* monitors and laptops */
+@media screen
+and (min-width: 1240px) {
+	}
+
+/* tablet */
+@media screen
+and (min-width: 1024px)
+and (max-width: 1240px) {
+	}
+
+@media screen
+and (min-width: 768px)
+and (max-width: 1024px) {
+	.nav--home-page {
+		background: #d9d9d9;
+		}
+
+	.header--home-page {
+		visibility: hidden;
+		display:    none;
+		}
+
+	}
+
+/* mobile */
+@media screen
+and (max-width: 768px) {
+	.nav--home-page {
+		background: #d9d9d9;
+		}
+
+	.header--home-page {
+		visibility: hidden;
+		display:    none;
+		}
+	}
+
+.cart {
+
+	background-repeat: no-repeat;
+	float:             right;
+	height:            42px;
+	position:          absolute;
+	right:             80px;
+	top:               0;
+	width:             50px;
+	}
+
+/* iPad in portrait & landscape */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px) {
+	}
+
+/* iPad in landscape */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape) {
+	}
+
+/* iPad in portrait */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait) {
+	}
+
+/* Retina iPad in portrait & landscape */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 2) {
+	}
+
+/* Retina iPad in landscape */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 2) {
+	}
+
+/* Retina iPad in portrait */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait)
+and (-webkit-min-device-pixel-ratio: 2) {
+	}
+
+/* iPad 1 & 2 in portrait & landscape */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+	}
+
+/* iPad 1 & 2 in landscape */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 1) {
+	}
+
+/* iPad 1 & 2 in portrait */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait)
+and (-webkit-min-device-pixel-ratio: 1) {
+	}
+
+/* iPad mini in portrait & landscape */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+	}
+
+/* iPad mini in landscape */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 1) {
+	}
+
+/* iPad mini in portrait */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait)
+and (-webkit-min-device-pixel-ratio: 1) {
+	}
+
+/* iPhone 5 in portrait & landscape */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 568px) {
+	.blog-post {
+		padding:    0 20px;
+		text-align: justify;
+		}
+	}
+
+/* iPhone 5 in landscape */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 568px)
+and (orientation: landscape) {
+	.blog-post {
+		padding:    0 20px;
+		text-align: justify;
+		}
+	}
+
+/* iPhone 5 in portrait */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 568px)
+and (orientation: portrait) {
+	.blog-post {
+		padding:    0 10px;
+		text-align: justify;
+		}
+	}
+
+/* iPhone 2G-4S in portrait & landscape */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px) {
+	.blog-post {
+		padding:    0 10px;
+		text-align: justify;
+		}
+	}
+
+/* iPhone 2G-4S in landscape */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px)
+and (orientation: landscape) {
+	.blog-post {
+		padding:    0 10px;
+		text-align: justify;
+		}
+	}
+
+/* iPhone 2G-4S in portrait */
+@media (max-device-width: 320px) {
+	.blog-post {
+		padding:    0 10px;
+		text-align: justify;
+		font-size:  1.1rem;
+		}
+	}
+
+/*  END LAYOUT
+---------------------------------------------------------------------- */

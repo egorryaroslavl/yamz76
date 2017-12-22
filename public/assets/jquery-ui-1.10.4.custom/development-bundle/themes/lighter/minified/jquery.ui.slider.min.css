@@ -1,0 +1,5 @@
+/*! jQuery UI - v1.10.4 - 2014-11-09
+* http://jqueryui.com
+* Copyright 2014 jQuery Foundation and other contributors; Licensed MIT */
+
+lighter .ui-slider{position:relative;text-align:left}lighter .ui-slider .ui-slider-handle{position:absolute;z-index:2;width:1.2em;height:1.2em;cursor:default}lighter .ui-slider .ui-slider-range{position:absolute;z-index:1;font-size:.7em;display:block;border:0;background-position:0 0}lighter .ui-slider.ui-state-disabled .ui-slider-handle,lighter .ui-slider.ui-state-disabled .ui-slider-range{filter:inherit}lighter .ui-slider-horizontal{height:.8em}lighter .ui-slider-horizontal .ui-slider-handle{top:-.3em;margin-left:-.6em}lighter .ui-slider-horizontal .ui-slider-range{top:0;height:100%}lighter .ui-slider-horizontal .ui-slider-range-min{left:0}lighter .ui-slider-horizontal .ui-slider-range-max{right:0}lighter .ui-slider-vertical{width:.8em;height:100px}lighter .ui-slider-vertical .ui-slider-handle{left:-.3em;margin-left:0;margin-bottom:-.6em}lighter .ui-slider-vertical .ui-slider-range{left:0;width:100%}lighter .ui-slider-vertical .ui-slider-range-min{bottom:0}lighter .ui-slider-vertical .ui-slider-range-max{top:0}

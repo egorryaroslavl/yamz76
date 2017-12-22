@@ -1,0 +1,89 @@
+body {
+	margin:      0;
+	padding:     0;
+	min-width:   100% !important;
+	font-family: Verdana;
+
+	}
+
+.content {
+	width:     100%;
+	max-width: 730px;
+
+	}
+
+table.header {
+	width:               100%;
+	background-color:    #aabbff;
+	border-bottom-color: #000000 !important;
+	border-bottom-width: 6px !important;
+	border-bottom-style: solid !important;
+	}
+
+table.contact {
+	background-color:    #e0e0e0;
+	border-bottom-color: #000000 !important;
+	border-bottom-width: 1px !important;
+	border-bottom-style: solid !important;
+	}
+
+table.user-data {
+	margin-left:10px;
+	border-top-color:    #000000 !important;
+	border-top-width:    1px !important;
+	border-top-style:    solid !important;
+	border-bottom-color: #000000 !important;
+	border-bottom-width: 1px !important;
+	border-bottom-style: solid !important;
+	margin-top:          20px;
+	margin-bottom:       20px;
+	}
+
+table.user-data td.td-title {
+	font-weight: bold;
+	padding:     0 10px;
+
+	}
+
+table.user-data td.td-cont {
+	padding: 0 10px;
+
+	}
+
+table.header td {
+	text-align:     center;
+	vertical-align: middle;
+	padding:        30px;
+
+	}
+
+table.contact td {
+	padding:   10px;
+	font-size: 10px;
+	}
+
+table.product-list {
+	background:      #fff;
+	width:           100%;
+	margin-left:     10px;
+	margin-right:    10px;
+	border-collapse: collapse;
+	}
+
+.product-list td {
+	border-color: #000000 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+	padding:      0 10px;
+	}
+
+.product-list thead tr {
+	background: black;
+	color:      #ffffff;
+	}
+
+.product-list thead th {
+	color:     #ffffff;
+	font-size: 12px;
+	border:    1px #000000 solid !important;
+	}
